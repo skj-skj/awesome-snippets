@@ -1,0 +1,46 @@
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "foo-bar"
+version = "0.0.0"
+authors = [
+    { name = "Foo", email = "foo@example.com" },
+]
+description = "Foo Bar Python Package Description"
+dependencies = ["typing-extensions; python_version < '3.11'", "pandas"]
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+lint = ["ruff"]
+dev = ["pytest-cov", "pytest"]
+
+[tool.hatch.build]
+exclude = [
+    "tests/",
+    "docs/",
+    "examples/",
+    "scripts/",
+    "*.yml",
+    "*.md",
+    ".cz.toml",
+    "ruff.toml",
+]
+
+[tool.coverage.run]
+source = ["foo_bar"]
+
+[tool.coverage.report]
+exclude_also = [
+    "if TYPE_CHECKING:",
+    # "# pragma: no cover",
+    "if __name__ == .__main__.",
+    "sys.version_info >= .3, 11.",
+    "\\A(?s:.*# pragma: exclude file.*)\\Z", # A pragma comment that excludes an entire file
+]
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib", "--cov", "--cov-report=term", "--cov-report=html"]
+testpaths = ["tests"]
