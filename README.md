@@ -1,4 +1,6 @@
-# Awesome Snippet [![Awesome Snippet](https://awesome.re/badge.svg)](https://awesome.re)
+# Awesome Snippet
+
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
 Personal Collection of Awesome Code Snippets
 
