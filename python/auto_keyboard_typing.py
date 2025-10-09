@@ -19,9 +19,9 @@ def map_keys(value: str) -> list[str]:
 
 
 key_combination_n_values = {
-    "alt+comma": map_keys("foo"),
-    "alt+.": map_keys("Bar01!"),
-    "alt+/": 0,
+    "alt+comma": map_keys("foo"), # Text you want to type when 'alt+comma' is hit
+    "alt+.": map_keys("Bar01!"), # Text you want to type when 'alt+.' is hit
+    "alt+/": 0, # 'alt+/' to exit the program
 }
 
 keyboard.press_and_release("alt+tab")
@@ -35,3 +35,4 @@ while True:
                 break
             for character in value:
                 keyboard.press_and_release(character)
+
